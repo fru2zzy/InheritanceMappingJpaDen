@@ -1,5 +1,7 @@
 package com.example.demo.model.tablePerClass;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) // Для каждого класса отдельная таблица
+// Название колонки для общих полей
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "Fruit")
 public class Fruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
