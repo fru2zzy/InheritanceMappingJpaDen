@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass // Одна таблица, буде называться Transport и содержать две таблицы
+@MappedSuperclass // таблицы transport - нет. Есть car и bus, обе имеют в себе поля type и model.
 // главный класс - не Entity!
 public class Transport {
     @Id

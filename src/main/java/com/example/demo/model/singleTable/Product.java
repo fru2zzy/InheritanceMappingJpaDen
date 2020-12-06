@@ -18,8 +18,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE) // Одна колонка для общих полей + тип класа там пишется
-// Название колонки для общих полей
+
+// Название колонки для типа класа (Book или Pen)
 @DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "Product_Type")
+
+// Если поле уникальное другого класса, то в нашем случае будет null
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

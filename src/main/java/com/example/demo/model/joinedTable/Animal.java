@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED) // отдельная таблица для name, animalId - name мапинг.
+// Bird и Dog - отдельные таблицы со своими атрибутами, а имена храняться в animal.
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
