@@ -1,9 +1,9 @@
-package com.example.demo.controller.mappedSuperclass;
+package com.example.demo.controller.tablePerClass;
 
 import java.util.List;
 
-import com.example.demo.model.mappedSuperclass.Bus;
-import com.example.demo.repository.mappedSuperclass.BusRepository;
+import com.example.demo.model.tablePerClass.Mango;
+import com.example.demo.repository.tablePerClass.MangoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/bus")
-public class BusController {
+@RequestMapping("/api/mango")
+public class MangoController {
 
     @Autowired
-    BusRepository busRepository;
+    MangoRepository mangoRepository;
 
     @GetMapping
-    public List<Bus> getAll() {
-        return busRepository.findAll();
+    public List<Mango> getAll() {
+        return mangoRepository.findAll();
     }
 
     @PostMapping
-    public Bus post(@RequestBody Bus bus) {
-        return busRepository.save(bus);
+    public Mango post(@RequestBody Mango mango) {
+        return mangoRepository.save(mango);
     }
 }

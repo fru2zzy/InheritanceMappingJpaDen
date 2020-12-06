@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/transport")
+@RequestMapping("/api/car")
 public class CarController {
 
     @Autowired
     CarRepository carRepository;
 
-    @GetMapping(value = "/cars")
-    public List<Car> getBuses() {
+    @GetMapping
+    public List<Car> getAll() {
         return carRepository.findAll();
     }
 
-    @PostMapping(value = "/car")
+    @PostMapping
     public Car post(@RequestBody Car car) {
         return carRepository.save(car);
     }

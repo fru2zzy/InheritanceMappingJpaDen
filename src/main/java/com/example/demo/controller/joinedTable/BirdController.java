@@ -1,9 +1,9 @@
-package com.example.demo.controller.mappedSuperclass;
+package com.example.demo.controller.joinedTable;
 
 import java.util.List;
 
-import com.example.demo.model.mappedSuperclass.Bus;
-import com.example.demo.repository.mappedSuperclass.BusRepository;
+import com.example.demo.model.joinedTable.Bird;
+import com.example.demo.repository.joinedTable.BirdRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,19 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/bus")
-public class BusController {
+@RequestMapping("/api/bird")
+public class BirdController {
 
     @Autowired
-    BusRepository busRepository;
+    BirdRepository birdRepository;
 
-    @GetMapping
-    public List<Bus> getAll() {
-        return busRepository.findAll();
-    }
 
     @PostMapping
-    public Bus post(@RequestBody Bus bus) {
-        return busRepository.save(bus);
+    public Bird post(@RequestBody Bird bird) {
+        return birdRepository.save(bird);
+    }
+
+    @GetMapping
+    public List<Bird> getAll() {
+        return birdRepository.findAll();
     }
 }

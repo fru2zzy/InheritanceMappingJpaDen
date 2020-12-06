@@ -1,9 +1,9 @@
-package com.example.demo.controller.mappedSuperclass;
+package com.example.demo.controller.joinedTable;
 
 import java.util.List;
 
-import com.example.demo.model.mappedSuperclass.Bus;
-import com.example.demo.repository.mappedSuperclass.BusRepository;
+import com.example.demo.model.joinedTable.Dog;
+import com.example.demo.repository.joinedTable.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,19 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/bus")
-public class BusController {
+@RequestMapping("/api/dog")
+public class DogController {
 
     @Autowired
-    BusRepository busRepository;
+    DogRepository dogRepository;
 
-    @GetMapping
-    public List<Bus> getAll() {
-        return busRepository.findAll();
-    }
 
     @PostMapping
-    public Bus post(@RequestBody Bus bus) {
-        return busRepository.save(bus);
+    public Dog post(@RequestBody Dog dog) {
+        return dogRepository.save(dog);
+    }
+
+    @GetMapping
+    public List<Dog> getAll() {
+        return dogRepository.findAll();
     }
 }
